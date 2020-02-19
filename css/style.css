@@ -1,0 +1,129 @@
+/* Full-width input fields */
+.pop-up input[type=text], .pop-up input[type=password] {
+    width: 90%;
+    padding: 12px 20px;
+    margin: 8px 26px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-size:16px;
+}
+
+/* Set a style for all buttons */
+.pop-up .login {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 26px;
+    border: none;
+    cursor: pointer;
+    width: 90%;
+    font-size:20px;
+}
+
+.pop-up .login:hover {
+    opacity: 0.8;
+}
+
+/* Set a style for all buttons */
+.pop-up .register {
+    background-color: #00a8ff;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 26px;
+    border: none;
+    cursor: pointer;
+    width: 90%;
+    font-size:20px;
+}
+
+.pop-up .register:hover {
+    opacity: 0.8;
+}
+
+/* Center the image and position the close button */
+.pop-up .img-container {
+    text-align: center;
+    margin: 24px 0 12px 0;
+    position: relative;
+}
+
+.pop-up .avatar {
+    width: 200px;
+    height:200px;
+    border-radius: 50%;
+}
+
+/* The Modal (background) */
+.pop-up .modal {
+    display:none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+}
+
+/* Modal Content Box */
+.pop-up .modal-content {
+    background-color: #fefefe;
+    margin: 4% auto 15% auto;
+    border: 1px solid #888;
+    width: 40%;
+    padding-bottom: 30px;
+}
+
+/* The Close Button (x) */
+.pop-up .close {
+    position: absolute;
+    right: 25px;
+    top: 0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+}
+.pop-up .close:hover, .pop-up .close:focus {
+    color: red;
+    cursor: pointer;
+}
+
+/* Add Zoom Animation */
+.pop-up .animate {
+    animation: zoom 0.6s
+}
+@keyframes zoom {
+    from {transform: scale(0)}
+    to {transform: scale(1)}
+}
+
+.main-content {
+    width: 100%;
+    height: 100%;
+    color: white;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.main-content .content-item {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+.footer-custom {
+    width: 100%;
+    height: 100px;
+    background-color: white;
+    color: #181819;
+}
+
+.footer-custom .footer-item {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+}

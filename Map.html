@@ -1,0 +1,145 @@
+<html>
+    <head>
+        <title>Universal Studio Japan by KMUTNB</title>
+
+        <!-- Loading Bootstrap -->
+        <link rel="stylesheet" href="css/bootstrap.css">
+
+        <!-- Loading Flat UI -->
+        <link rel="stylesheet" href="css/flat-ui.css">
+        <link rel="stylesheet" href="css/flat-web.css">
+
+        <link rel="stylesheet" href="css/style.css">
+
+        <link rel="icon" href="favicon.png">
+    </head>
+
+    <body>
+        <header>
+            <nav id="topbar" class="navbar navbar-expand-lg navbar-light bg-light navbared shadow-sm">
+                <a class="navbar-brand" href="index.html">USJ</a>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent" style="width: 100%">
+                    <ul class="navbar-nav mr-auto"> <!-- mr-auto -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="Promotion.html">Promotion</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="Ticket.html">Ticket</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Map</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" onclick="document.getElementById('modal-wrapper').style.display='block'">Login</a>
+                        </li>
+
+                        <!--
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                User's
+                            </a>
+
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="Profile.html">Profile</a>
+                                <a class="dropdown-item" href="Logout.php">Logout</a>
+                            </div>
+                        </li>
+                        -->
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+        <main>
+            <div class="pop-up">
+                <div id="modal-wrapper" class="modal">
+                    <form class="modal-content animate" action="/action_page.php">
+                        <div class="img-container">
+                            <span onclick="document.getElementById('modal-wrapper').style.display='none'" class="close" title="Close PopUp">&times;</span>
+                            <img src="1.png" alt="Avatar" class="avatar">
+                            <h1 style="text-align: center;">Login or Register</h1>
+                        </div>
+
+
+
+                        <div class="container">
+                            <input type="text" placeholder="Enter Username" name="uname">
+                            <input type="password" placeholder="Enter Password" name="psw">
+                            <button type="submit" class="login">Login</button>
+                            <button type="submit" class="register">Register</button>
+                            <!--
+                            <input type="checkbox" style="margin:26px 30px;"> Remember me
+                            <a href="#" style="text-decoration:none; float:right; margin-right:34px; margin-top:26px;">Forgot Password ?</a>
+                            -->
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="main-content">
+                <p class="content-item"> Main Content #3 </p>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer push">
+            <div class="footer-custom">
+                <p class="footer-item"> Footer </p>
+            </div>
+        </footer>
+
+        <!-- ========== [SCRIPT] ========== -->
+        <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+
+        <script src="vendor/bootstrap/js/popper.js"></script>
+        <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+        <script src="vendor/select2/select2.min.js"></script>
+
+        <script src="js/main.js"></script>
+
+        <script src="js/smooth-scroll.js"></script>
+
+        <!--
+        <script>
+            var scroll = new SmoothScroll('a[href*="#"]', { speed: 300, speedAsDuration: true });
+        </script>
+        -->
+
+        <script>
+            // If user clicks anywhere outside of the modal, Modal will close
+
+            var modal = document.getElementById('modal-wrapper');
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+        </script>
+
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+        <ins class="adsbygoogle"
+             style="display:block; text-align:center;"
+             data-ad-layout="in-article"
+             data-ad-format="fluid"
+             data-ad-client="ca-pub-7013552742369373"
+             data-ad-slot="5323679646"></ins>
+
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </body>
+</html>
