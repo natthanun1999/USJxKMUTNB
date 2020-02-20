@@ -1,0 +1,206 @@
+<html>
+    <head>
+        <title>Universal Studio Japan by KMUTNB</title>
+
+        <!-- Loading Bootstrap -->
+        <link rel="stylesheet" href="css/bootstrap.css">
+
+        <!-- Loading Flat UI -->
+        <link rel="stylesheet" href="css/flat-ui.css">
+        <link rel="stylesheet" href="css/flat-web.css">
+
+        <link rel="stylesheet" href="css/style.css">
+
+        <link rel="icon" href="favicon.png">
+    </head>
+
+    <body>
+        <header>
+            <nav id="topbar" class="navbar navbar-expand-lg navbar-light bg-light navbared shadow-sm">
+                <a class="navbar-brand" href="index.html">USJ</a>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent" style="width: 100%">
+                    <ul class="navbar-nav mr-auto"> <!-- mr-auto -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="Promotion.html">Promotion</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Ticket</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="Map.html">Map</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" onclick="modalShow('modal-wrapper');">Login</a>
+                        </li>
+
+                        <!--
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                User's
+                            </a>
+
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="Profile.html">Profile</a>
+                                <a class="dropdown-item" href="Logout.php">Logout</a>
+                            </div>
+                        </li>
+                        -->
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+        <main>
+            <div class="pop-up">
+                <!-- AUTHENTICATION MODAL -->
+                <div id="modal-wrapper" class="modal">
+                    <form class="modal-content animate" action="/action_page.php">
+                        <div class="img-container">
+                            <span onclick="modalClose('modal-wrapper')" class="close" title="Close PopUp">&times;</span>
+                            <img src="1.png" alt="Avatar" class="avatar">
+                            <h1 style="text-align: center;">Login or Register</h1>
+                        </div>
+
+
+
+                        <div class="container">
+                            <input type="text" placeholder="Enter Username" name="uname">
+                            <input type="password" placeholder="Enter Password" name="psw">
+                            <button type="submit" class="login">Login</button>
+                            <button type="submit" class="register">Register</button>
+                            <!--
+                            <input type="checkbox" style="margin:26px 30px;"> Remember me
+                            <a href="#" style="text-decoration:none; float:right; margin-right:34px; margin-top:26px;">Forgot Password ?</a>
+                            -->
+                        </div>
+                    </form>
+                </div>
+
+                <!-- TICKET BUY MODAL -->
+                <div id="buy-modal" class="modal">
+                    <form class="modal-content animate" action="/action_page.php">
+                        <div class="img-container">
+                            <span onclick="modalClose('buy-modal')" class="close" title="Close PopUp">&times;</span>
+                            <img src="1.png" alt="Avatar" class="avatar" id="ticket-img">
+                            <h1 style="text-align: center;" id="ticket-item">Ticket Sell System</h1>
+                            <h2 style="text-align: center;" id="ticket-price">$68</h2>
+                        </div>
+
+                        <div class="container">
+                            <input type="text" placeholder="Enter Coupon Code (Optional)" name="uname">
+                            <button type="submit" class="confirm">Confirm</button>
+                            <button type="button" onclick="modalClose('buy-modal')" class="cancel">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="ticket-content">
+                <div class="container">
+                    <div class="container-item">
+                        <div>
+                            <p class="title">Ticket</p>
+                        </div>
+
+                        <table width="100%" height="50%">
+                            <tr height="100%">
+                                <td align="center" width="33%">
+                                    <div class="content-item">
+                                        <img src="img/Adult.png" width="80%" height="45%" style="margin-top: 10%">
+                                        <p style="margin-top: 7%">Adult Ticket</p>
+                                        <p>$68</p>
+
+                                        <button class="btn btn-lg btn-primary btn-embossed half-width"
+                                                onclick="buyTicketShow('buy-modal', 'Adult', '68');">Buy</button>
+                                    </div>
+                                </td>
+
+                                <td align="center" width="33%">
+                                    <div class="content-item">
+                                        <img src="img/Children.png" width="80%" height="45%" style="margin-top: 10%">
+                                        <p style="margin-top: 7%">Children Ticket</p>
+                                        <p>$48</p>
+
+                                        <button class="btn btn-lg btn-primary btn-embossed half-width"
+                                                onclick="buyTicketShow('buy-modal', 'Children', '48');">Buy</button>
+                                    </div>
+                                </td>
+
+                                <td align="center" width="33%">
+                                    <div class="content-item">
+                                        <img src="img/Seniors.png" width="80%" height="45%" style="margin-top: 10%">
+                                        <p style="margin-top: 7%">Seniors Ticket</p>
+                                        <p>$62</p>
+
+                                        <button class="btn btn-lg btn-primary btn-embossed half-width"
+                                                onclick="buyTicketShow('buy-modal', 'Seniors', '62');">Buy</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-custom">
+                <p class="footer-item"> Footer </p>
+            </div>
+        </footer>
+
+        <!-- ========== [SCRIPT] ========== -->
+        <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+
+        <script src="vendor/bootstrap/js/popper.js"></script>
+        <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+        <script src="vendor/select2/select2.min.js"></script>
+
+        <script src="js/main.js"></script>
+
+        <script src="js/smooth-scroll.js"></script>
+
+        <!--
+        <script>
+            var scroll = new SmoothScroll('a[href*="#"]', { speed: 300, speedAsDuration: true });
+        </script>
+        -->
+
+        <script>
+            var idSelected = "Nothing";
+
+            function modalShow(id) {
+                window.idSelected = id;
+                document.getElementById(id).style.display='block';
+            }
+
+            function buyTicketShow(id, item, price) {
+                window.idSelected = id;
+                document.getElementById(id).style.display='block';
+
+                document.getElementById('ticket-img').src = "img/" + item + ".png";
+                document.getElementById('ticket-item').innerHTML = item + " Ticket";
+                document.getElementById('ticket-price').innerHTML = "$" + price;
+            }
+
+            function modalClose(id) {
+                window.idSelected = id;
+                document.getElementById(id).style.display='none';
+            }
+        </script>
+    </body>
+</html>
