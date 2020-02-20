@@ -42,7 +42,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="#" onclick="document.getElementById('modal-wrapper').style.display='block'">Login</a>
+                            <a class="nav-link" href="#" onclick="modalShow('modal-wrapper');">Login</a>
                         </li>
 
                         <!--
@@ -64,10 +64,11 @@
 
         <main>
             <div class="pop-up">
+                <!-- AUTHENTICATION MODAL -->
                 <div id="modal-wrapper" class="modal">
                     <form class="modal-content animate" action="/action_page.php">
                         <div class="img-container">
-                            <span onclick="document.getElementById('modal-wrapper').style.display='none'" class="close" title="Close PopUp">&times;</span>
+                            <span onclick="modalClose('modal-wrapper')" class="close" title="Close PopUp">&times;</span>
                             <img src="1.png" alt="Avatar" class="avatar">
                             <h1 style="text-align: center;">Login or Register</h1>
                         </div>
@@ -222,27 +223,17 @@
         </script>
 
         <script>
-            // If user clicks anywhere outside of the modal, Modal will close
+            var idSelected = "Nothing";
 
-            var modal = document.getElementById('modal-wrapper');
-            window.onclick = function(event) {
-                if (event.target == modal) {
-                    modal.style.display = "none";
-                }
+            function modalShow(id) {
+                window.idSelected = id;
+                document.getElementById(id).style.display='block';
             }
-        </script>
 
-        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-
-        <ins class="adsbygoogle"
-             style="display:block; text-align:center;"
-             data-ad-layout="in-article"
-             data-ad-format="fluid"
-             data-ad-client="ca-pub-7013552742369373"
-             data-ad-slot="5323679646"></ins>
-
-        <script>
-            (adsbygoogle = window.adsbygoogle || []).push({});
+            function modalClose(id) {
+                window.idSelected = id;
+                document.getElementById(id).style.display='none';
+            }
         </script>
     </body>
 </html>

@@ -11,10 +11,7 @@
 
         <link rel="stylesheet" href="css/style.css">
 
-        <link rel="stylesheet" href="css/Map.css">
-
         <link rel="icon" href="favicon.png">
-
     </head>
 
     <body>
@@ -37,11 +34,11 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="Ticket.html">Ticket</a>
+                            <a class="nav-link" href="#">Ticket</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Map</a>
+                            <a class="nav-link" href="Map.html">Map</a>
                         </li>
 
                         <li class="nav-item">
@@ -90,14 +87,71 @@
                         </div>
                     </form>
                 </div>
+
+                <!-- TICKET BUY MODAL -->
+                <div id="buy-modal" class="modal">
+                    <form class="modal-content animate" action="/action_page.php">
+                        <div class="img-container">
+                            <span onclick="modalClose('buy-modal')" class="close" title="Close PopUp">&times;</span>
+                            <img src="1.png" alt="Avatar" class="avatar" id="ticket-img">
+                            <h1 style="text-align: center;" id="ticket-item">Ticket Sell System</h1>
+                            <h2 style="text-align: center;" id="ticket-price">$68</h2>
+                        </div>
+
+                        <div class="container">
+                            <input type="text" placeholder="Enter Coupon Code (Optional)" name="uname">
+                            <button type="submit" class="confirm">Confirm</button>
+                            <button type="button" onclick="modalClose('buy-modal')" class="cancel">Cancel</button>
+                        </div>
+                    </form>
+                </div>
             </div>
 
-            <div class="main-content">
-                <div id="titletext">Studio Map</div>
+            <div class="ticket-content">
+                <div class="container">
+                    <div class="container-item">
+                        <div>
+                            <p class="title">Ticket</p>
+                        </div>
 
-            </div>
-            <div class="map-content" align="center" >
-                <img src="img/Map.jpg"  id="mapimage" >
+                        <table width="100%" height="50%">
+                            <tr height="100%">
+                                <td align="center" width="33%">
+                                    <div class="content-item">
+                                        <img src="img/Adult.png" width="80%" height="45%" style="margin-top: 10%">
+                                        <p style="margin-top: 7%">Adult Ticket</p>
+                                        <p>$68</p>
+
+                                        <button class="btn btn-lg btn-primary btn-embossed half-width"
+                                                onclick="buyTicketShow('buy-modal', 'Adult', '68');">Buy</button>
+                                    </div>
+                                </td>
+
+                                <td align="center" width="33%">
+                                    <div class="content-item">
+                                        <img src="img/Children.png" width="80%" height="45%" style="margin-top: 10%">
+                                        <p style="margin-top: 7%">Children Ticket</p>
+                                        <p>$48</p>
+
+                                        <button class="btn btn-lg btn-primary btn-embossed half-width"
+                                                onclick="buyTicketShow('buy-modal', 'Children', '48');">Buy</button>
+                                    </div>
+                                </td>
+
+                                <td align="center" width="33%">
+                                    <div class="content-item">
+                                        <img src="img/Seniors.png" width="80%" height="45%" style="margin-top: 10%">
+                                        <p style="margin-top: 7%">Seniors Ticket</p>
+                                        <p>$62</p>
+
+                                        <button class="btn btn-lg btn-primary btn-embossed half-width"
+                                                onclick="buyTicketShow('buy-modal', 'Seniors', '62');">Buy</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
             </div>
         </main>
 
@@ -132,6 +186,15 @@
             function modalShow(id) {
                 window.idSelected = id;
                 document.getElementById(id).style.display='block';
+            }
+
+            function buyTicketShow(id, item, price) {
+                window.idSelected = id;
+                document.getElementById(id).style.display='block';
+
+                document.getElementById('ticket-img').src = "img/" + item + ".png";
+                document.getElementById('ticket-item').innerHTML = item + " Ticket";
+                document.getElementById('ticket-price').innerHTML = "$" + price;
             }
 
             function modalClose(id) {
