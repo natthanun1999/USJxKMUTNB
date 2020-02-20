@@ -1,0 +1,14 @@
+#mapimage {
+    width: 60vw;
+    height: 90vw;
+}
+
+#titletext {
+    font-family: Gabriola ;
+    font-size: 6vw;
+    margin-top: 20px;
+}
+
+.img-container {
+    width: 100%;
+}
