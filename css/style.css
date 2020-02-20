@@ -114,6 +114,69 @@
     transform: translateX(-50%) translateY(-50%);
 }
 
+.home-content {
+    width: 100%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    color: white;
+    text-align: center;
+    vertical-align: middle;
+    background-image: url('../img/Home-Content.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.home-content div {
+    width: 80%;
+    height: 900px;
+    background-color: rgba(255, 255, 255, 0.4);
+    border: none;
+    border-radius: 12px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.home-content .first {
+    margin-bottom: 50px;
+}
+
+.home-content .second {
+    margin-top: 100px;
+    margin-bottom: 50px;
+}
+
+.home-content .third {
+    margin-top: 100px;
+}
+
+.home-content .content-item {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+.home-content .title {
+    font-size: 3vw;
+    font-weight: bold;
+}
+
+.home-content .image-table {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.line {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #fff;
+    border: 2px solid #fff;
+    border-radius: 6px;
+}
+
 .footer-custom {
     width: 100%;
     height: 100px;

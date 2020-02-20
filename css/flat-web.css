@@ -65,6 +65,11 @@ body
     width: 25%;
 }
 
+.default-width
+{
+    width: 10%;
+}
+
 .no-margin
 {
     margin: 0;
