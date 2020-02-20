@@ -4,11 +4,17 @@
 }
 
 #titletext {
-    font-family: Gabriola ;
+    font-family: "Script MT";
+    color: #000099;
     font-size: 6vw;
     margin-top: 20px;
+    text-decoration: underline;
 }
 
 .img-container {
     width: 100%;
+}
+
+body {
+    background-image: url("../img/sky.jfif");
 }
