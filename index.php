@@ -17,7 +17,7 @@
     <body>
         <header>
             <nav id="topbar" class="navbar navbar-expand-lg navbar-light bg-light navbared shadow-sm">
-                <a class="navbar-brand" href="index.html">USJ</a>
+                <a class="navbar-brand" href="index.php">USJ</a>
 
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -30,22 +30,50 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="Promotion.html">Promotion</a>
+                            <a class="nav-link" href="Promotion.php">Promotion</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="Ticket.html">Ticket</a>
+                            <a class="nav-link" href="Ticket.php">Ticket</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="Map.html">Map</a>
+                            <a class="nav-link" href="Map.php">Map</a>
                         </li>
 
+                        <?php
+                            session_start();
+
+                            if (!isset($_SESSION['USER_LOGON']))
+                            {
+                                $sending = "<li class='nav-item'>"."\n";
+                                $sending = $sending."<a class='nav-link' href='#' onclick=\"modalShow('modal-wrapper');\">Login</a>"."\n";
+                                $sending = $sending."</li>";
+
+                                echo $sending;
+                            }
+                            else
+                            {
+                                $sending = "<li class='nav-item dropdown'>"."\n";
+
+                                $sending = $sending."<a class='nav-link dropdown-toggle' href='' id='navbarDropdown' role='button'";
+                                $sending = $sending."data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'> ".$_SESSION['USER_LOGON']."'s </a>";
+
+                                $sending = $sending."<div class='dropdown-menu' aria-labelledby='navbarDropdown'>";
+                                $sending = $sending."<a class='dropdown-item' href='Profile.php'> Profile </a>";
+                                $sending = $sending."<a class='dropdown-item' href='Back-end/Logout.php'> Logout </a>";
+                                $sending = $sending."</div>";
+
+                                $sending = $sending."</li>";
+
+                                echo $sending;
+                            }
+                        ?>
+                        <!--
                         <li class="nav-item">
                             <a class="nav-link" href="#" onclick="modalShow('modal-wrapper');">Login</a>
                         </li>
 
-                        <!--
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 User's
@@ -66,9 +94,9 @@
             <div class="pop-up">
                 <!-- AUTHENTICATION MODAL -->
                 <div id="modal-wrapper" class="modal">
-                    <form class="modal-content animate" action="/action_page.php">
+                    <form class="modal-content animate" action="Back-end/Auth.php" method="post">
                         <div class="img-container">
-                            <span onclick="modalClose('modal-wrapper')" class="close" title="Close PopUp">&times;</span>
+                            <span onclick="modalClose('modal-wrapper');" class="close" title="Close PopUp">&times;</span>
                             <img src="1.png" alt="Avatar" class="avatar">
                             <h1 style="text-align: center;">Login or Register</h1>
                         </div>
@@ -76,14 +104,34 @@
 
 
                         <div class="container">
-                            <input type="text" placeholder="Enter Username" name="uname">
-                            <input type="password" placeholder="Enter Password" name="psw">
+                            <input type="text" placeholder="Enter Username" name="USERNAME">
+                            <input type="password" placeholder="Enter Password" name="PASSWORD">
                             <button type="submit" class="login">Login</button>
-                            <button type="submit" class="register">Register</button>
+                            <button type="button" class="register" onclick="modalClose('modal-wrapper'); modalShow('register-modal');">Register</button>
                             <!--
                             <input type="checkbox" style="margin:26px 30px;"> Remember me
                             <a href="#" style="text-decoration:none; float:right; margin-right:34px; margin-top:26px;">Forgot Password ?</a>
                             -->
+                        </div>
+                    </form>
+                </div>
+
+                <!-- REGISTER MODAL -->
+                <div id="register-modal" class="modal">
+                    <form class="modal-content animate" action="Back-end/Register.php" method="post">
+                        <div class="img-container">
+                            <span onclick="modalClose('register-modal');" class="close" title="Close PopUp">&times;</span>
+                            <img src="1.png" alt="Avatar" class="avatar">
+                            <h1 style="text-align: center;">Register</h1>
+                        </div>
+
+
+
+                        <div class="container">
+                            <input type="text" placeholder="Enter Username" name="USERNAME">
+                            <input type="password" placeholder="Enter Password" name="PASSWORD">
+                            <button type="submit" class="confirm">Register</button>
+                            <button type="button" class="cancel" onclick="modalClose('register-modal');">Cancel</button>
                         </div>
                     </form>
                 </div>
