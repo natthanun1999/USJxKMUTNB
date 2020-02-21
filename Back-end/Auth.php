@@ -12,21 +12,32 @@
 
         $fetch = mysqli_fetch_assoc($result);
 
-        if ($fetch['ID'] != "")
+        if ($fetch['USER_ID'] != "")
         {
-            $_SESSION['USER_LOGON'] = $username;
+            $_SESSION['USER_ID'] = $fetch['USER_ID'];
+            $_SESSION['USER_LOGON'] = $fetch['USERNAME'];
+            $_SESSION['USER_BALANCE'] = $fetch['MONEY'];
 
-            echo "<script> alert('Welcome, ".$fetch['USERNAME']."\'s'); </script>";
-            echo "<script> window.history.back(); </script>";
+            SendSuccess();
         }
         else
-        {
-            echo "<script> alert('Error! : Username or Password was wrong.'); </script>";
-            echo "<script> window.history.back(); </script>";
-        }
+            SendFailed();
     }
     else
+        SendFailed();
+
+    function SendSuccess()
     {
-        echo "<script> alert('Error! : Username or Password was wrong.'); </script>";
-        echo "<script> window.history.back(); </script>";
+        $sending = "<form id='SEND' action='../".$_SESSION['PRE-PAGE']."' method='post'> <input type='hidden' name='LOGIN' value='1'> </form>";
+
+        echo $sending;
+        echo "<script> window.SEND.submit(); </script>";
+    }
+
+    function SendFailed()
+    {
+        $sending = "<form id='SEND' action='../".$_SESSION['PRE-PAGE']."' method='post'> <input type='hidden' name='LOGIN' value='0'> </form>";
+
+        echo $sending;
+        echo "<script> window.SEND.submit(); </script>";
     }

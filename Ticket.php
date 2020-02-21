@@ -1,3 +1,31 @@
+<?php
+    session_start();
+
+    $_SESSION['PRE-PAGE'] = "Ticket.php";
+
+    require('Back-end/Connection.php');
+
+    $sql = "SELECT * FROM ticket_idle";
+    $resultTicket = mysqli_query($db, $sql);
+
+    $ticketData = array(
+            array('NULL', 0, 0),
+            array('NULL', 0, 0),
+            array('NULL', 0, 0)
+    );
+
+    $n = 0;
+
+    while ($fetchTicket = mysqli_fetch_assoc($resultTicket))
+    {
+        $ticketData[$n][0] = $fetchTicket['NAME'];
+        $ticketData[$n][1] = $fetchTicket['PRICE'];
+        $ticketData[$n][2] = $fetchTicket['AMOUNT'];
+
+        $n++;
+    }
+?>
+
 <html>
     <head>
         <title>Universal Studio Japan by KMUTNB</title>
@@ -42,8 +70,6 @@
                         </li>
 
                         <?php
-                            session_start();
-
                             if (!isset($_SESSION['USER_LOGON']))
                             {
                                 $sending = "<li class='nav-item'>"."\n";
@@ -57,7 +83,8 @@
                                 $sending = "<li class='nav-item dropdown'>"."\n";
 
                                 $sending = $sending."<a class='nav-link dropdown-toggle' href='' id='navbarDropdown' role='button'";
-                                $sending = $sending."data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'> ".$_SESSION['USER_LOGON']."'s </a>";
+                                $sending = $sending."data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
+                                ".$_SESSION['USER_LOGON']."'s [Balance : $".$_SESSION['USER_BALANCE']."]</a>";
 
                                 $sending = $sending."<div class='dropdown-menu' aria-labelledby='navbarDropdown'>";
                                 $sending = $sending."<a class='dropdown-item' href='Profile.php'> Profile </a>";
@@ -69,19 +96,6 @@
                                 echo $sending;
                             }
                         ?>
-
-                        <!--
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                User's
-                            </a>
-
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="Profile.html">Profile</a>
-                                <a class="dropdown-item" href="Logout.php">Logout</a>
-                            </div>
-                        </li>
-                        -->
                     </ul>
                 </div>
             </nav>
@@ -101,8 +115,8 @@
 
 
                         <div class="container">
-                            <input type="text" placeholder="Enter Username" name="USERNAME">
-                            <input type="password" placeholder="Enter Password" name="PASSWORD">
+                            <input type="text" placeholder="Enter Username" name="USERNAME" required>
+                            <input type="password" placeholder="Enter Password" name="PASSWORD" required>
                             <button type="submit" class="login">Login</button>
                             <button type="button" class="register" onclick="modalClose('modal-wrapper'); modalShow('register-modal');">Register</button>
                             <!--
@@ -125,8 +139,8 @@
 
 
                         <div class="container">
-                            <input type="text" placeholder="Enter Username" name="USERNAME">
-                            <input type="password" placeholder="Enter Password" name="PASSWORD">
+                            <input type="text" placeholder="Enter Username" name="USERNAME" required>
+                            <input type="password" placeholder="Enter Password" name="PASSWORD" required>
                             <button type="submit" class="confirm">Register</button>
                             <button type="button" class="cancel" onclick="modalClose('register-modal');">Cancel</button>
                         </div>
@@ -135,17 +149,23 @@
 
                 <!-- TICKET BUY MODAL -->
                 <div id="buy-modal" class="modal">
-                    <form class="modal-content animate" action="/action_page.php">
+                    <form class="modal-content animate" action="Back-end/Buy-Ticket.php" method="post">
                         <div class="img-container">
                             <span onclick="modalClose('buy-modal')" class="close" title="Close PopUp">&times;</span>
                             <img src="1.png" alt="Avatar" class="avatar" id="ticket-img">
                             <h1 style="text-align: center;" id="ticket-item">Ticket Sell System</h1>
                             <h2 style="text-align: center;" id="ticket-price">$68</h2>
+                            <h3 style="text-align: center;" id="ticket-amount">In stock : 99</h3>
                         </div>
 
                         <div class="container">
-                            <input type="text" placeholder="Enter Coupon Code (Optional)" name="uname">
-                            <button type="submit" class="confirm">Confirm</button>
+                            <input type="text" placeholder="Enter Coupon Code (Optional)" name="COUPON">
+                            <input type="hidden" name="USER_ID" value="<?php if (isset($_SESSION['USER_ID'])) echo $_SESSION['USER_ID']; ?>">
+                            <input type="hidden" name="TYPE" id="send-item">
+                            <input type="hidden" name="PRICE" id="send-price">
+                            <input type="hidden" name="AMOUNT" id="send-amount">
+
+                            <button type="submit" class="confirm" name="BUY" value="true">Confirm</button>
                             <button type="button" onclick="modalClose('buy-modal')" class="cancel">Cancel</button>
                         </div>
                     </form>
@@ -165,10 +185,25 @@
                                     <div class="content-item">
                                         <img src="img/Adult.png" width="80%" height="45%" style="margin-top: 10%">
                                         <p style="margin-top: 7%">Adult Ticket</p>
-                                        <p>$68</p>
+                                        <p><?php echo "$".$ticketData[0][1]; ?></p>
 
-                                        <button class="btn btn-lg btn-primary btn-embossed half-width"
-                                                onclick="buyTicketShow('buy-modal', 'Adult', '68');">Buy</button>
+                                        <?php
+                                            if (isset($_SESSION['USER_LOGON']))
+                                            {
+                                                $sending = "<button class='btn btn-lg btn-primary btn-embossed half-width'
+                                                onclick=\"buyTicketShow('buy-modal', 
+                                                '".$ticketData[0][0]."', '".$ticketData[0][1]."', '".$ticketData[0][2]."');\">Buy</button>";
+
+                                                echo $sending;
+                                            }
+                                            else
+                                            {
+                                                $sending = "<button class='btn btn-lg btn-primary btn-embossed half-width'
+                                                onclick=\"modalShow('modal-wrapper');\">Buy</button>";
+
+                                                echo $sending;
+                                            }
+                                        ?>
                                     </div>
                                 </td>
 
@@ -176,10 +211,25 @@
                                     <div class="content-item">
                                         <img src="img/Children.png" width="80%" height="45%" style="margin-top: 10%">
                                         <p style="margin-top: 7%">Children Ticket</p>
-                                        <p>$48</p>
+                                        <p><?php echo "$".$ticketData[1][1]; ?></p>
 
-                                        <button class="btn btn-lg btn-primary btn-embossed half-width"
-                                                onclick="buyTicketShow('buy-modal', 'Children', '48');">Buy</button>
+                                        <?php
+                                            if (isset($_SESSION['USER_LOGON']))
+                                            {
+                                                $sending = "<button class='btn btn-lg btn-primary btn-embossed half-width'
+                                                    onclick=\"buyTicketShow('buy-modal', 
+                                                    '".$ticketData[1][0]."', '".$ticketData[1][1]."', '".$ticketData[1][2]."');\">Buy</button>";
+
+                                                echo $sending;
+                                            }
+                                            else
+                                            {
+                                                $sending = "<button class='btn btn-lg btn-primary btn-embossed half-width'
+                                                    onclick=\"modalShow('modal-wrapper');\">Buy</button>";
+
+                                                echo $sending;
+                                            }
+                                        ?>
                                     </div>
                                 </td>
 
@@ -187,10 +237,25 @@
                                     <div class="content-item">
                                         <img src="img/Seniors.png" width="80%" height="45%" style="margin-top: 10%">
                                         <p style="margin-top: 7%">Seniors Ticket</p>
-                                        <p>$62</p>
+                                        <p><?php echo "$".$ticketData[2][1]; ?></p>
 
-                                        <button class="btn btn-lg btn-primary btn-embossed half-width"
-                                                onclick="buyTicketShow('buy-modal', 'Seniors', '62');">Buy</button>
+                                        <?php
+                                            if (isset($_SESSION['USER_LOGON']))
+                                            {
+                                                $sending = "<button class='btn btn-lg btn-primary btn-embossed half-width'
+                                                        onclick=\"buyTicketShow('buy-modal', 
+                                                        '".$ticketData[2][0]."', '".$ticketData[2][1]."', '".$ticketData[2][2]."');\">Buy</button>";
+
+                                                echo $sending;
+                                            }
+                                            else
+                                            {
+                                                $sending = "<button class='btn btn-lg btn-primary btn-embossed half-width'
+                                                        onclick=\"modalShow('modal-wrapper');\">Buy</button>";
+
+                                                echo $sending;
+                                            }
+                                        ?>
                                     </div>
                                 </td>
                             </tr>
@@ -219,6 +284,106 @@
 
         <script src="js/smooth-scroll.js"></script>
 
+        <script src="js/sweetalert2.all.min.js"></script>
+
+        <?php
+            if (isset($_POST['LOGIN']))
+            {
+                if ($_POST['LOGIN'])
+                {
+                    $alert = "Swal.fire({
+                                         title: 'Login success!',
+                                         text: 'Welcome ".$_SESSION['USER_LOGON']."\'s to Universal Studio Japan.',
+                                         icon: 'success',
+                                         confirmButtonText: 'Close'
+                                       })";
+                }
+                else
+                {
+                    $alert = "Swal.fire({
+                                         title: 'Login failed!',
+                                         text: 'Oop! Something went wrong.',
+                                         icon: 'error',
+                                         confirmButtonText: 'Close'
+                                       })";
+                }
+
+                echo "<script>".$alert."</script>";
+            }
+
+            if (isset($_POST['REGISTER']))
+            {
+                if ($_POST['REGISTER'])
+                {
+                    $alert = "Swal.fire({
+                                         title: 'Register success!',
+                                         text: 'Thank you, Have fun with your Holiday.',
+                                         icon: 'success',
+                                         confirmButtonText: 'Close'
+                                       })";
+                }
+                else
+                {
+                    $alert = "Swal.fire({
+                                         title: 'Register failed!',
+                                         text: 'Oop! Something went wrong.',
+                                         icon: 'error',
+                                         confirmButtonText: 'Close'
+                                       })";
+                }
+
+                echo "<script>".$alert."</script>";
+            }
+
+            if (isset($_POST['LOGOUT']))
+            {
+                $alert = "Swal.fire({
+                                         title: 'Logout success!',
+                                         text: 'Good bye, See you later.',
+                                         icon: 'success',
+                                         confirmButtonText: 'Close'
+                                       })";
+
+                echo "<script>".$alert."</script>";
+            }
+
+            if (isset($_POST['PURCHASE']))
+            {
+                if ($_POST['PURCHASE'])
+                {
+                    $alert = "Swal.fire({
+                                         title: 'Purchase success!',
+                                         text: 'Thank you, Let\'s play.',
+                                         icon: 'success',
+                                         confirmButtonText: 'Close'
+                                        })";
+                }
+                else
+                {
+                    $alert = "Swal.fire({
+                                         title: 'Purchase failed!',
+                                         text: 'Oop! Money not enough.',
+                                         icon: 'error',
+                                         confirmButtonText: 'Close'
+                                       })";
+                }
+
+                echo "<script>".$alert."</script>";
+            }
+
+            if (isset($_POST['OUT-OF-STOCK']))
+            {
+                $alert = "Swal.fire({
+                                     title: 'Purchase failed!',
+                                     text: 'Oop! Out of stock.',
+                                     icon: 'error',
+                                     confirmButtonText: 'Close'
+                                   })";
+
+                echo "<script>".$alert."</script>";
+            }
+        ?>
+
         <!--
         <script>
             var scroll = new SmoothScroll('a[href*="#"]', { speed: 300, speedAsDuration: true });
@@ -233,13 +398,25 @@
                 document.getElementById(id).style.display='block';
             }
 
-            function buyTicketShow(id, item, price) {
+            function buyTicketShow(id, item, price, amount) {
                 window.idSelected = id;
                 document.getElementById(id).style.display='block';
 
                 document.getElementById('ticket-img').src = "img/" + item + ".png";
                 document.getElementById('ticket-item').innerHTML = item + " Ticket";
                 document.getElementById('ticket-price').innerHTML = "$" + price;
+                document.getElementById('ticket-amount').innerHTML = "In stock : " + amount;
+
+                if (item == "Adult")
+                    item = 1;
+                else if (item == "Children")
+                    item = 2;
+                else if (item == "Seniors")
+                    item = 3;
+
+                document.getElementById('send-item').value = item;
+                document.getElementById('send-price').value = price;
+                document.getElementById('send-amount').value = amount;
             }
 
             function modalClose(id) {

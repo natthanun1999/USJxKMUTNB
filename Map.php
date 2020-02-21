@@ -47,6 +47,8 @@
                         <?php
                             session_start();
 
+                            $_SESSION['PRE-PAGE'] = "Map.php";
+
                             if (!isset($_SESSION['USER_LOGON']))
                             {
                                 $sending = "<li class='nav-item'>"."\n";
@@ -60,7 +62,8 @@
                                 $sending = "<li class='nav-item dropdown'>"."\n";
 
                                 $sending = $sending."<a class='nav-link dropdown-toggle' href='' id='navbarDropdown' role='button'";
-                                $sending = $sending."data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'> ".$_SESSION['USER_LOGON']."'s </a>";
+                                $sending = $sending."data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
+                                ".$_SESSION['USER_LOGON']."'s [Balance : $".$_SESSION['USER_BALANCE']."]</a>";
 
                                 $sending = $sending."<div class='dropdown-menu' aria-labelledby='navbarDropdown'>";
                                 $sending = $sending."<a class='dropdown-item' href='Profile.php'> Profile </a>";
@@ -104,8 +107,8 @@
 
 
                         <div class="container">
-                            <input type="text" placeholder="Enter Username" name="USERNAME">
-                            <input type="password" placeholder="Enter Password" name="PASSWORD">
+                            <input type="text" placeholder="Enter Username" name="USERNAME" required>
+                            <input type="password" placeholder="Enter Password" name="PASSWORD" required>
                             <button type="submit" class="login">Login</button>
                             <button type="button" class="register" onclick="modalClose('modal-wrapper'); modalShow('register-modal');">Register</button>
                             <!--
@@ -128,8 +131,8 @@
 
 
                         <div class="container">
-                            <input type="text" placeholder="Enter Username" name="USERNAME">
-                            <input type="password" placeholder="Enter Password" name="PASSWORD">
+                            <input type="text" placeholder="Enter Username" name="USERNAME" required>
+                            <input type="password" placeholder="Enter Password" name="PASSWORD" required>
                             <button type="submit" class="confirm">Register</button>
                             <button type="button" class="cancel" onclick="modalClose('register-modal');">Cancel</button>
                         </div>
@@ -164,6 +167,70 @@
         <script src="js/main.js"></script>
 
         <script src="js/smooth-scroll.js"></script>
+
+        <script src="js/sweetalert2.all.min.js"></script>
+
+        <?php
+            if (isset($_POST['LOGIN']))
+            {
+                if ($_POST['LOGIN'])
+                {
+                    $alert = "Swal.fire({
+                                         title: 'Login success!',
+                                         text: 'Welcome ".$_SESSION['USER_LOGON']."\'s to Universal Studio Japan.',
+                                         icon: 'success',
+                                         confirmButtonText: 'Close'
+                                       })";
+                }
+                else
+                {
+                    $alert = "Swal.fire({
+                                         title: 'Login failed!',
+                                         text: 'Oop! Something went wrong.',
+                                         icon: 'error',
+                                         confirmButtonText: 'Close'
+                                       })";
+                }
+
+                echo "<script>".$alert."</script>";
+            }
+
+            if (isset($_POST['REGISTER']))
+            {
+                if ($_POST['REGISTER'])
+                {
+                    $alert = "Swal.fire({
+                                             title: 'Register success!',
+                                             text: 'Thank you, Have fun with your Holiday.',
+                                             icon: 'success',
+                                             confirmButtonText: 'Close'
+                                           })";
+                }
+                else
+                {
+                    $alert = "Swal.fire({
+                                             title: 'Register failed!',
+                                             text: 'Oop! Something went wrong.',
+                                             icon: 'error',
+                                             confirmButtonText: 'Close'
+                                           })";
+                }
+
+                echo "<script>".$alert."</script>";
+            }
+
+            if (isset($_POST['LOGOUT']))
+            {
+                $alert = "Swal.fire({
+                                         title: 'Logout success!',
+                                         text: 'Good bye, See you later.',
+                                         icon: 'success',
+                                         confirmButtonText: 'Close'
+                                       })";
+
+                echo "<script>".$alert."</script>";
+            }
+        ?>
 
         <!--
         <script>
