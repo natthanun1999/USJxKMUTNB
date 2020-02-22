@@ -63,7 +63,7 @@
                                 ".$_SESSION['USER_LOGON']."'s [Balance : $".$_SESSION['USER_BALANCE']."]</a>";
 
                                 $sending = $sending."<div class='dropdown-menu' aria-labelledby='navbarDropdown'>";
-                                $sending = $sending."<a class='dropdown-item' href='Profile.php'> Profile </a>";
+                                $sending = $sending. "<a class='dropdown-item' href='Cart.php'> Cart </a>";
                                 $sending = $sending."<a class='dropdown-item' href='Back-end/Logout.php'> Logout </a>";
                                 $sending = $sending."</div>";
 

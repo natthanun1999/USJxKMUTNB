@@ -87,7 +87,7 @@
                                 ".$_SESSION['USER_LOGON']."'s [Balance : $".$_SESSION['USER_BALANCE']."]</a>";
 
                                 $sending = $sending."<div class='dropdown-menu' aria-labelledby='navbarDropdown'>";
-                                $sending = $sending."<a class='dropdown-item' href='Profile.php'> Profile </a>";
+                                $sending = $sending. "<a class='dropdown-item' href='Cart.php'> Cart </a>";
                                 $sending = $sending."<a class='dropdown-item' href='Back-end/Logout.php'> Logout </a>";
                                 $sending = $sending."</div>";
 
@@ -366,6 +366,30 @@
                                          icon: 'error',
                                          confirmButtonText: 'Close'
                                        })";
+                }
+
+                echo "<script>".$alert."</script>";
+            }
+
+            if (isset($_POST['PURCHASE-COUPON']))
+            {
+                if ($_POST['PURCHASE-COUPON'])
+                {
+                    $alert = "Swal.fire({
+                                             title: 'Purchase success!',
+                                             text: 'Thank you, Let\'s play.',
+                                             icon: 'success',
+                                             confirmButtonText: 'Close'
+                                            })";
+                }
+                else
+                {
+                    $alert = "Swal.fire({
+                                             title: 'Purchase failed!',
+                                             text: 'Oop! Coupon is invalid.',
+                                             icon: 'error',
+                                             confirmButtonText: 'Close'
+                                           })";
                 }
 
                 echo "<script>".$alert."</script>";

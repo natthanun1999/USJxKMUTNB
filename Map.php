@@ -66,7 +66,7 @@
                                 ".$_SESSION['USER_LOGON']."'s [Balance : $".$_SESSION['USER_BALANCE']."]</a>";
 
                                 $sending = $sending."<div class='dropdown-menu' aria-labelledby='navbarDropdown'>";
-                                $sending = $sending."<a class='dropdown-item' href='Profile.php'> Profile </a>";
+                                $sending = $sending. "<a class='dropdown-item' href='Cart.php'> Cart </a>";
                                 $sending = $sending."<a class='dropdown-item' href='Back-end/Logout.php'> Logout </a>";
                                 $sending = $sending."</div>";
 
@@ -140,10 +140,10 @@
                 </div>
             </div>
 
-            <div class="main-content">
-                <div id="titletext">Studio Map</div>
-
+            <div class="map-content">
+                <div id="titletext" class="title">Studio Map</div>
             </div>
+
             <div class="map-content" align="center" >
                 <img src="img/Map.jpg"  id="mapimage" >
             </div>
