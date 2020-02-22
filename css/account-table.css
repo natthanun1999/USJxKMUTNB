@@ -14,31 +14,7 @@
 /*//////////////////////////////////////////////////////////////////
 [ RESTYLE TAG ]*/
 * {
-	margin: 0px; 
-	padding: 0px; 
 	box-sizing: border-box;
-}
-
-body, html {
-	height: 100%;
-	font-family: sans-serif;
-}
-
-/* ------------------------------------ */
-a {
-	margin: 0px;
-	transition: all 0.4s;
-	-webkit-transition: all 0.4s;
-  -o-transition: all 0.4s;
-  -moz-transition: all 0.4s;
-}
-
-a:focus {
-	outline: none !important;
-}
-
-a:hover {
-	text-decoration: none;
 }
 
 /* ------------------------------------ */
@@ -57,6 +33,7 @@ input {
   display: block;
 	outline: none;
 	border: none !important;
+  margin-top: 8px;
 }
 
 textarea {
@@ -97,13 +74,26 @@ iframe {
 /*//////////////////////////////////////////////////////////////////
 [ Table ]*/
 
+.table-content {
+  width: 70%;
+  height: 100%;
+}
+
+.table-content .content-item {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 .limiter {
   width: 100%;
-  margin: 0 auto;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .container-table100 {
-  width: 100%;
+  width: 70%;
   min-height: 100vh;
   /*
   background: #c850c0;
@@ -121,10 +111,13 @@ iframe {
   justify-content: center;
   flex-wrap: wrap;
   padding: 33px 30px;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .wrap-table100 {
-  width: 1800px;
+  width: 100%;
 }
 
 table {
@@ -195,95 +188,43 @@ tbody tr:hover {
 
 .column1 {
   text-align: center;
-  width: 180px;
+  width: 14.2%;
   padding-left: 40px;
 }
 
 .column2 {
   text-align: center;
-  width: 180px;
+  width: 14.2%;
 }
 
 .column3 {
   text-align: center;
-  width: 200px;
+  width: 14.2%;
 }
 
 .column4 {
   text-align: center;
-  width: 200px;
+  width: 14.2%;
   /*text-align: right;*/
 }
 
 .column5 {
   text-align: center;
-  width: 180px;
+  width: 14.2%;
   /*text-align: right;*/
 }
 
 .column6 {
   text-align: center;
-  width: 220px;
+  width: 14.2%;
   /*text-align: right;*/
 }
-
 
 .column7 {
   text-align: center;
-  width: 150px;
+  width: 14.2%;
   /*text-align: right;*/
 }
-
-
-.column8 {
-  text-align: center;
-  width: 240px;
-  /*text-align: right;*/
-}
-
-
-.column9 {
-  text-align: center;
-  width: 150px;
-  /*text-align: right;*/
-}
-
-
-.column10 {
-  text-align: center;
-  width: 150px;
-  /*text-align: right;*/
-}
-
-
-.column11 {
-  text-align: center;
-  width: 180px;
-  /*text-align: right;*/
-}
-
-
-.column12 {
-  text-align: center;
-  width: 180px;
-  /*text-align: right;*/
-}
-
-
-.column13 {
-  text-align: center;
-  width: 150px;
-  /*text-align: right;*/
-}
-
-.column14 {
-  text-align: center;
-  width: 150px;
-  /*text-align: right;*/
-  padding-right: 40px;
-}
-
-
 
 @media screen and (max-width: 992px) {
   table {
@@ -318,62 +259,37 @@ tbody tr:hover {
     top: 0;
   }
   table tbody tr td:nth-child(1):before {
-    content: "Passport ID";
+    content: "Account ID";
   }
   table tbody tr td:nth-child(2):before {
-    content: "Identity Card No.";
+    content: "Username";
   }
   table tbody tr td:nth-child(3):before {
-    content: "Name";
+    content: "Password";
   }
   table tbody tr td:nth-child(4):before {
-    content: "E-Mail";
+    content: "Status";
   }
   table tbody tr td:nth-child(5):before {
-    content: "Telephone";
+    content: "Balance";
   }
   table tbody tr td:nth-child(6):before {
-    content: "Address";
+    content: "Edit";
   }
   table tbody tr td:nth-child(7):before {
-    content: "Baggages";
-  }
-  table tbody tr td:nth-child(8):before {
-    content: "Food Name";
-  }
-  table tbody tr td:nth-child(9):before {
-    content: "Departure";
-  }
-  table tbody tr td:nth-child(10):before {
-    content: "Arrival";
-  }
-  table tbody tr td:nth-child(11):before {
-    content: "Flight Date";
-  }
-  table tbody tr td:nth-child(12):before {
-    content: "Return Date";
-  }
-  table tbody tr td:nth-child(13):before {
-    content: "Seat No.";
-  }
-  table tbody tr td:nth-child(14):before {
-    content: "Editor";
+    content: "Delete";
   }
 
-  .column4,
-  .column5,
-  .column6 {
-    text-align: left;
-  }
-
+  .column1,
+  .column2,
+  .column3,
   .column4,
   .column5,
   .column6,
-  .column1,
-  .column2,
-  .column3 {
+  .column7 {
     width: 100%;
   }
+
 
   tbody tr {
     font-size: 14px;

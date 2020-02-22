@@ -59,6 +59,10 @@
                                             ".$_SESSION['USER_LOGON']."'s [Balance : $".$_SESSION['USER_BALANCE']."]</a>";
 
                                 $sending = $sending."<div class='dropdown-menu' aria-labelledby='navbarDropdown'>";
+
+                                if ($_SESSION['USER_STATUS'] == "99")
+                                    $sending = $sending."<a class='dropdown-item' href='Manage.php'> Manage </a>";
+
                                 $sending = $sending. "<a class='dropdown-item' href='#'> Cart </a>";
                                 $sending = $sending."<a class='dropdown-item' href='Back-end/Logout.php'> Logout </a>";
                                 $sending = $sending."</div>";

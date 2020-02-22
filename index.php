@@ -65,7 +65,11 @@
                                 ".$_SESSION['USER_LOGON']."'s [Balance : $".$_SESSION['USER_BALANCE']."]</a>";
 
                                 $sending = $sending."<div class='dropdown-menu' aria-labelledby='navbarDropdown'>";
-                                $sending = $sending. "<a class='dropdown-item' href='Cart.php'> Cart </a>";
+
+                                if ($_SESSION['USER_STATUS'] == "99")
+                                    $sending = $sending."<a class='dropdown-item' href='Manage.php'> Manage </a>";
+
+                                $sending = $sending."<a class='dropdown-item' href='Cart.php'> Cart </a>";
                                 $sending = $sending."<a class='dropdown-item' href='Back-end/Logout.php'> Logout </a>";
                                 $sending = $sending."</div>";
 
@@ -74,22 +78,6 @@
                                 echo $sending;
                             }
                         ?>
-                        <!--
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" onclick="modalShow('modal-wrapper');">Login</a>
-                        </li>
-
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                User's
-                            </a>
-
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="Profile.html">Profile</a>
-                                <a class="dropdown-item" href="Logout.php">Logout</a>
-                            </div>
-                        </li>
-                        -->
                     </ul>
                 </div>
             </nav>
