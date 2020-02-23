@@ -16,6 +16,7 @@
         {
             $_SESSION['USER_ID'] = $fetch['USER_ID'];
             $_SESSION['USER_LOGON'] = $fetch['USERNAME'];
+            $_SESSION['USER_STATUS'] = $fetch['STATUS_ID'];
             $_SESSION['USER_BALANCE'] = $fetch['MONEY'];
 
             SendSuccess();
