@@ -1,0 +1,38 @@
+.mapimage {
+    width: 65vw;
+    height: 85vw;
+}
+.Pic {
+    width: 20px;
+    padding-bottom: 10px;
+}
+
+.titletext {
+    font-family: 'Lobster' ;
+    color: #000099;
+    font-size: 6vw;
+    margin-top: 20px;
+    text-decoration: underline;
+}
+
+.footertext {
+    font-family: 'Staatliches' ;
+    color: black;
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+.txt {
+    font-family: 'Staatliches' ;
+    color: black;
+    font-size: 30px;
+    margin-top: 20px;
+}
+
+.img-container {
+    width: 100%;
+}
+
+.Map-Body {
+    background-image: url("../img/sky.jfif");
+}

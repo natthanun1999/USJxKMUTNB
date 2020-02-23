@@ -65,6 +65,11 @@ body
     width: 25%;
 }
 
+.default-width
+{
+    width: 10%;
+}
+
 .no-margin
 {
     margin: 0;
@@ -86,6 +91,22 @@ body
     text-align: center;
 }
 
+.promotion-item
+{
+    height: 300px;
+    padding: 2px;
+}
+
+.promotion-item .promotion-item-box
+{
+    background: rgba(255, 255, 255, 0.6);
+    color: rgb(94, 94, 94);
+    padding: 40px;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+}
+
 .push
 {
     margin-top: 40px;
@@ -94,6 +115,11 @@ body
 .push-lg
 {
     margin-top: 78px;
+}
+
+.push-m
+{
+    margin-top: 18px;
 }
 
 .push-sm
@@ -114,6 +140,11 @@ body
 .push-bottom-sm
 {
     margin-bottom: 5px;
+}
+
+.position-mid-v
+{
+    margin-left: 25%;
 }
 
 @media(max-width: 767px)
