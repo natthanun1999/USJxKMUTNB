@@ -98,7 +98,7 @@
             </nav>
         </header>
 
-        <main>
+        <main >
             <div class="pop-up">
                 <!-- AUTHENTICATION MODAL -->
                 <div id="modal-wrapper" class="modal">
@@ -145,14 +145,14 @@
                 </div>
             </div>
 
-            <div class="main-content">
+            <div class="main-content" >
                 <div class="content-item">
                     <section class="resection push-bottom-lg" id="about">
                         <div class="jumbotron jumbotron-dark text-center">
                             <h1>SPECIAL OFFERS!</h1>
 
                             <p>
-                                Make you to developer.
+                                Universal Studios Japan Tickets and Offers.
                             </p>
                         </div>
 
@@ -160,59 +160,99 @@
                             <div class="row">
                                 <div class="promotion-item col-md-4">
                                     <div class="promotion-item-box">
-                                        <img src="img/icons/table.png" alt="table">
+                                        <table width="100%" height="100%" border = "1">
+                                            <tr height = "40%">
+                                                <td>
+                                                    <img src="img/offer1.png"  alt="insert">
+                                                </td>
+                                            </tr>
 
-                                        <p>
-                                            <b>Buy 2 Days. Get  2 Days Free.</b>
-                                            <br> > Double the thrills with two extra days at Universal Japan.
-                                            <br> > Go all out in all three parks when you upgrade to include Volcano Bay for $40.
-                                        </p>
+                                            <tr height = "40%">
+                                                <td>
+                                                    <p style = "margin-bottom : 0px">
+                                                        <b>It is My Happier Birthday </b>
+                                                    </p>
+                                                    <p style = "font-size : 1vw">
+                                                      > Get a free ticket when you visit with 4 or more friends within 3 days of your birthday.
+                                                    </p>
+                                                </td>
+                                            </tr>
 
-                                        <button class="btn btn-lg btn-primary btn-embossed push-sm"
-                                                onclick="window.location='Manage/Ticket-Insertion.php';">Enter</button>
+                                            <tr height = "20%">
+                                                <td>
+                                                    <button class="btn btn-lg btn-primary btn-embossed push-sm">Get an offer</button>
+                                                </td>
+                                            </tr>
+                                        </table>
                                     </div>
                                 </div>
 
                                 <div class="promotion-item col-md-4">
                                     <div class="promotion-item-box">
-                                        <img src="img/icons/insert.png" alt="insert">
+                                        <table width="100%" height="100%">
+                                            <tr height = "40%">
+                                                <td>
+                                                    <img src="img/leapyear.jpg" width = "70%" alt="insert">
+                                                </td>
+                                            </tr>
 
-                                        <p>
-                                            <b>Leap Year 2020</b>
-                                            <br> > 29th Feb | 29% OFF*
-                                            <br> > Offer is available both online and offline.
-                                            <br> > This Offer is valid only on 29th February.
+                                            <tr height = "40%">
+                                                <td>
+                                                    <p style = "margin-bottom : 0px">
+                                                        <b>Leap Year 2020</b>
+                                                    </p>
+                                                    <p style = "font-size : 1vw">
+                                                        <br> > 29th Feb | 29% OFF*
+                                                    </p>
+                                                </td>
+                                            </tr>
 
-                                        </p>
-
-                                        <button class="btn btn-lg btn-primary btn-embossed push-sm"
-                                                onclick="window.location='Manage/Account-Insertion.php';">Enter</button>
+                                            <tr height = "20%">
+                                                <td>
+                                                    <button class="btn btn-lg btn-primary btn-embossed push-sm">Get an offer</button>
+                                                </td>
+                                            </tr>
+                                        </table>
                                     </div>
                                 </div>
 
                                 <div class="promotion-item col-md-4">
-                                    <div class="promotion-item-box">
-                                        <img src="img/icons/coupon.png" alt="food">
+                                        <div class="promotion-item-box">
+                                            <table width="100%" height="100%">
+                                                <tr height = "40%">
+                                                    <td>
+                                                        <img src="img/offer3.png" alt="insert">
+                                                    </td>
+                                                </tr>
 
-                                        <p>
-                                            <b>Save 10% on Tickets<\b>
-                                            <br> > Best Offer for Friends and Family.
-                                            <br> > Book 7 or more tickets and save 10%.
-                                        </p>
+                                                <tr height = "40%">
+                                                    <td>
+                                                        <p style = "margin-bottom : 0px">
+                                                           <b>50% off on every 2nd Ticket, All of Feb</b>
+                                                        </p>
+                                                        <p style = "font-size : 1vw">
+                                                           <br> > Best Offer for Friends and Family.
+                                                        </p>
+                                                    </td>
+                                                </tr>
 
-                                        <button class="btn btn-lg btn-primary btn-embossed push-sm"
-                                                onclick="window.location='Manage/Coupon-Insertion.php';">Enter</button>
-                                    </div>
+                                                <tr height = "20%">
+                                                    <td>
+                                                        <button class="btn btn-lg btn-primary btn-embossed push-sm">Get an offer</button>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
                                 </div>
                             </div>
 
                             <div class="row">
-                                <div class="promotion-item col-md-3">
+                                <div class="promotion-item col-md-4">
                                     <div class="promotion-item-box">
                                         <img src="img/icons/tickets.png" alt="ticket">
 
                                         <p>
-                                            Get an offer.
+                                            Flip-that-field!
                                         </p>
 
                                         <button class="btn btn-lg btn-primary btn-embossed push-sm"
@@ -225,7 +265,7 @@
                                         <img src="img/icons/edit.png" alt="edit">
 
                                         <p>
-                                            Get an offer.
+                                            Follow the ...
                                         </p>
 
                                         <button class="btn btn-lg btn-primary btn-embossed push-sm"
@@ -233,12 +273,12 @@
                                     </div>
                                 </div>
 
-                                <div class="promotion-item col-md-5">
+                                <div class="promotion-item col-md-4">
                                     <div class="promotion-item-box">
                                         <img src="img/icons/discount.png" alt="discount">
 
                                         <p>
-                                            Get an offer.
+                                            Slot Machine.
                                         </p>
 
                                         <button class="btn btn-lg btn-primary btn-embossed push-sm"
