@@ -1,0 +1,80 @@
+.games-content {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    color: white;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.games-content .container-item {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+.games-content .content-item {
+    width: 40%;
+    height: 60%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+.games-content .content-item tr {
+    height: 20%;
+}
+
+.games-content .content-item td {
+    font-weight: bold;
+    font-size: 2vw;
+    text-align: center;
+    border: 2px solid white;
+    width: 20%;
+}
+
+.start-box {
+    background-color: #7ed6df;
+}
+
+.start-box:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.win-box {
+    background-color: #ffe65e;
+}
+
+.win-box:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.trap-box {
+    background-color: #eb4d4b;
+}
+
+.trap-box:hover {
+    opacity: 0.8;
+}
+
+.path-box {
+    background-color: #535c68;
+}
+
+.path-box:hover {
+    opacity: 0.8;
+}
+
+.pass-box {
+    background-color: #fff;
+}
+
+.pass-box:hover {
+    opacity: 0.8;
+}

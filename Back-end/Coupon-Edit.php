@@ -22,7 +22,9 @@
         {
             if ($status == 'Idle')
             {
-                $userID = '9999';
+                if ($fetchAccount['USER_ID'] == "")
+                    $userID = '9999';
+
                 $ticketID = '999999';
             }
 
@@ -30,7 +32,7 @@
                     WHERE COUPON_ID = '$couponID'";
             $resultCoupon = mysqli_query($db, $sql);
 
-            $fetchCoupon = mysqli_fetch_assoc($resultCoupon);
+            //$fetchCoupon = mysqli_fetch_assoc($resultCoupon);
 
             SendSuccess();
         }

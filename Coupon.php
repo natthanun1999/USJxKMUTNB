@@ -48,7 +48,7 @@
                         <?php
                             session_start();
 
-                            $_SESSION['PRE-PAGE'] = "Cart.php";
+                            $_SESSION['PRE-PAGE'] = "Coupon.php";
 
                             if (!isset($_SESSION['USER_LOGON']))
                             {
@@ -67,8 +67,8 @@
                                 if ($_SESSION['USER_STATUS'] == "99")
                                     $sending = $sending."<a class='dropdown-item' href='Manage.php'> Manage </a>";
 
-                                $sending = $sending. "<a class='dropdown-item' href='#'> Cart </a>";
-                                $sending = $sending. "<a class='dropdown-item' href='Coupon.php'> Coupon </a>";
+                                $sending = $sending. "<a class='dropdown-item' href='Cart.php'> Cart </a>";
+                                $sending = $sending. "<a class='dropdown-item' href='#'> Coupon </a>";
                                 $sending = $sending."<a class='dropdown-item' href='Back-end/Logout.php'> Logout </a>";
                                 $sending = $sending."</div>";
 
@@ -84,16 +84,15 @@
 
         <main>
             <div class="pop-up">
-                <!-- SHOW TICKET MODAL -->
+                <!-- SHOW COUPON MODAL -->
                 <div id="show-modal" class="modal">
                     <form class="modal-content animate">
                         <div class="img-container">
                             <span onclick="modalClose('show-modal');" class="close" title="Close PopUp">&times;</span>
-                            <img src="1.png" alt="Avatar" class="avatar" id="ticketImage">
-                            <h1 style="text-align: center;">Ticket Information</h1>
-                            <h3 style="text-align: center;" id="ticketType">Ticket Type : </h3>
-                            <h3 style="text-align: center;" id="ticketID">Ticket ID : </h3>
-                            <h3 style="text-align: center;" id="ticketDate">Purchase Date : DD/MM/YYYY</h3>
+                            <h1 style="text-align: center;">Coupon Information</h1>
+                            <h3 style="text-align: center;" id="couponID">Coupon ID : </h3>
+                            <h3 style="text-align: center;" id="couponDiscount">Discount : </h3>
+                            <h3 style="text-align: center;" id="couponStatus">Status : </h3>
                         </div>
 
                         <div class="container">
@@ -106,10 +105,10 @@
             <div class="main-content">
                 <div class="content-item">
                     <div class="jumbotron jumbotron-dark text-center">
-                        <h1>Purchase History</h1>
+                        <h1>Your coupon</h1>
 
                         <p>
-                            You can check your ticket below.
+                            You can check your coupon below.
                         </p>
                     </div>
 
@@ -117,31 +116,37 @@
                         <?php
                             require('Back-end/Connection.php');
 
-                            $sql = "SELECT ticket.TICKET_ID, ticket_type.TYPE_NAME FROM ticket JOIN ticket_type
-                                    ON ticket.TYPE_ID = ticket_type.TYPE_ID WHERE ticket.USER_ID = '".$_SESSION['USER_ID']."'";
-                            $resultTicket = mysqli_query($db, $sql);
+                            $sql = "SELECT * FROM coupon WHERE USER_ID = '".$_SESSION['USER_ID']."'";
+                            $resultCoupon = mysqli_query($db, $sql);
 
                             $row = 1;
 
                             echo "<div class='row'>";
 
-                            while ($fetchTicket = mysqli_fetch_assoc($resultTicket))
+                            while ($fetchCoupon = mysqli_fetch_assoc($resultCoupon))
                             {
-                                if ($fetchTicket['TICKET_ID'] != "")
+                                if ($fetchCoupon['COUPON_ID'] != "")
                                 {
+                                    $src = "";
+
                                     if ($row % 5 == 0)
                                         echo "<div class='row'>";
 
+                                    if ($fetchCoupon['COUPON_STATUS'] == 'Idle')
+                                        $src = "img/icons/coupon.png";
+                                    else
+                                        $src = "img/icons/discount.png";
+
                                     $sending = "<div class='showcase-item col-md-3'>
                                                     <div class='showcase-item-box'>
-                                                        <img src='img/".$fetchTicket['TYPE_NAME']."-Icon.png'>
+                                                        <img src='$src'>
                         
                                                         <p>
-                                                            ".$fetchTicket['TYPE_NAME']." Ticket
+                                                            Discount ".$fetchCoupon['COUPON_DISCOUNT']."% (".$fetchCoupon['COUPON_STATUS'].")
                                                         </p>
                         
                                                         <button type='button' class='btn btn-lg btn-primary btn-embossed push-sm'
-                                                        onclick=\"modalShow('show-modal', '".$fetchTicket['TICKET_ID']."', '".$fetchTicket['TYPE_NAME']."')\"> More </button>
+                                                        onclick=\"modalShow('show-modal', '".$fetchCoupon['COUPON_ID']."', '".$fetchCoupon['COUPON_DISCOUNT']."', '".$fetchCoupon['COUPON_STATUS']."')\"> More </button>
                                                     </div>
                                                 </div>";
 
@@ -219,13 +224,13 @@
         <script>
             var idSelected = "Nothing";
 
-            function modalShow(id, ticketID, ticketType) {
+            function modalShow(id, couponID, couponDiscount, couponStatus) {
                 window.idSelected = id;
                 document.getElementById(id).style.display='block';
 
-                document.getElementById('ticketType').innerText = "Ticket Type : " + ticketType;
-                document.getElementById('ticketID').innerText = "Ticket ID : " + ticketID;
-                document.getElementById('ticketImage').src = "img/" + ticketType + ".png";
+                document.getElementById('couponID').innerText = "Coupon ID : " + couponID;
+                document.getElementById('couponDiscount').innerText = "Discount : " + couponDiscount;
+                document.getElementById('couponStatus').innerText = "Status : " + couponStatus;
             }
 
             function modalClose(id) {
