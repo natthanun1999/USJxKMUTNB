@@ -146,7 +146,101 @@
             </div>
 
             <div class="main-content">
-                <p class="content-item"> Promotion #3  </p>
+                <div class="content-item">
+                    <section class="resection push-bottom-lg" id="about">
+                        <div class="jumbotron jumbotron-dark text-center">
+                            <h1>Do you want to managed something?</h1>
+
+                            <p>
+                                Make you to developer.
+                            </p>
+                        </div>
+
+                        <div class="jumbotron jumbotron-dark text-center">
+                            <div class="row">
+                                <div class="promotion-item col-md-4">
+                                    <div class="promotion-item-box">
+                                        <img src="img/icons/table.png" alt="table">
+
+                                        <p>
+                                            Ticket insertion.
+                                        </p>
+
+                                        <button class="btn btn-lg btn-primary btn-embossed push-sm"
+                                                onclick="window.location='Manage/Ticket-Insertion.php';">Enter</button>
+                                    </div>
+                                </div>
+
+                                <div class="promotion-item col-md-5">
+                                    <div class="promotion-item-box">
+                                        <img src="img/icons/insert.png" alt="insert">
+
+                                        <p>
+                                            Account insertion.
+                                        </p>
+
+                                        <button class="btn btn-lg btn-primary btn-embossed push-sm"
+                                                onclick="window.location='Manage/Account-Insertion.php';">Enter</button>
+                                    </div>
+                                </div>
+
+                                <div class="promotion-item col-md-3">
+                                    <div class="promotion-item-box">
+                                        <img src="img/icons/coupon.png" alt="food">
+
+                                        <p>
+                                            Discount coupon insertion.
+                                        </p>
+
+                                        <button class="btn btn-lg btn-primary btn-embossed push-sm"
+                                                onclick="window.location='Manage/Coupon-Insertion.php';">Enter</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="promotion-item col-md-3">
+                                    <div class="promotion-item-box">
+                                        <img src="img/icons/tickets.png" alt="ticket">
+
+                                        <p>
+                                            Check a ticket.
+                                        </p>
+
+                                        <button class="btn btn-lg btn-primary btn-embossed push-sm"
+                                                onclick="window.location='Manage/Ticket-List.php';">Enter</button>
+                                    </div>
+                                </div>
+
+                                <div class="promotion-item col-md-4">
+                                    <div class="promotion-item-box">
+                                        <img src="img/icons/edit.png" alt="edit">
+
+                                        <p>
+                                            Check someone account.
+                                        </p>
+
+                                        <button class="btn btn-lg btn-primary btn-embossed push-sm"
+                                                onclick="window.location='Manage/Account-List.php';">Enter</button>
+                                    </div>
+                                </div>
+
+                                <div class="promotion-item col-md-5">
+                                    <div class="promotion-item-box">
+                                        <img src="img/icons/discount.png" alt="discount">
+
+                                        <p>
+                                            Check discount coupon.
+                                        </p>
+
+                                        <button class="btn btn-lg btn-primary btn-embossed push-sm"
+                                                onclick="window.location='Manage/Coupon-List.php';">Enter</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
             </div>
         </main>
 
