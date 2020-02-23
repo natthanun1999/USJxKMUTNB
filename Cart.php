@@ -11,7 +11,11 @@
 
         <link rel="stylesheet" href="css/style.css">
 
+        <link rel="stylesheet" href="css/Map.css">
+
         <link rel="icon" href="favicon.png">
+
+        <link href="https://fonts.googleapis.com/css?family=Staatliches|Lobster|Slabo+27px&display=swap" rel="stylesheet">
     </head>
 
     <body>
@@ -157,9 +161,29 @@
         </main>
 
         <!-- Footer -->
-        <footer class="footer push">
+        <footer class="footer">
             <div class="footer-custom">
-                <p class="footer-item"> Footer </p>
+                <div class="footer-item">
+                    <table border="0">
+                        <tr>
+                            <td width="50%">
+                                <p class="footertext">
+                                    <img src="img/locate.png" class="Pic">  2 Chome-1-33 Sakurajima, Konohana Ward, Osaka, 554-0031, Japan<br>
+                                    <img src="img/phone_contact.png" class="Pic">  +81 570-200-606<br>
+                                </p>
+                            </td>
+
+                            <td width="50%">
+                                <p class="footertext">
+                                <p class="txt">"Let's share something special together"</p><br>
+                                &nbsp<img src="img/facebook.png" class="Pic">&nbsp
+                                &nbsp<img src="img/twitter.png" class="Pic">&nbsp
+                                &nbsp<img src="img/instagram.png" class="Pic">&nbsp
+                                </p>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
             </div>
         </footer>
 

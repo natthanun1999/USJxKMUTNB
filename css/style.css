@@ -291,3 +291,10 @@
     transform: translateY(-50%);
     text-align: center;
 }
+
+.footer-custom .footer-item table {
+    position: relative;
+    width: 70%;
+    left: 50%;
+    transform: translateX(-50%);
+}

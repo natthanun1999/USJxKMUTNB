@@ -18,7 +18,7 @@
         <link href="https://fonts.googleapis.com/css?family=Staatliches|Lobster|Slabo+27px&display=swap" rel="stylesheet">
     </head>
 
-    <body>
+    <body class="Map-Body">
         <header>
             <nav id="topbar" class="navbar navbar-expand-lg navbar-light bg-light navbared shadow-sm">
                 <a class="navbar-brand" href="index.php">USJ</a>
@@ -133,11 +133,13 @@
             </div>
 
             <div class="map-content">
-                <div id="titletext" class="title">Studio Map</div>
+                <div class="title">
+                    <p class="titletext"> Studio Map </p>
+                </div>
             </div>
 
             <div class="map-content" align="center" >
-                <img src="img/Map.jpg"  id="mapimage" >
+                <img src="img/Map.jpg" class="mapimage" >
             </div>
         </main>
 
@@ -147,28 +149,22 @@
                 <div class="footer-item">
                     <table border="0">
                         <tr>
-                            <td width="150px">
-
-                            </td>
-                            <td>
-                                <p id="footertext">
-                                    <img src="img/locate.png" id="Pic">  2 Chome-1-33 Sakurajima, Konohana Ward, Osaka, 554-0031, Japan<br>
-                                    <img src="img/phone_contact.png" id="Pic">  +81 570-200-606<br>
+                            <td width="50%">
+                                <p class="footertext">
+                                    <img src="img/locate.png" class="Pic">  2 Chome-1-33 Sakurajima, Konohana Ward, Osaka, 554-0031, Japan<br>
+                                    <img src="img/phone_contact.png" class="Pic">  +81 570-200-606<br>
                                 </p>
                             </td>
-                            <td width="250px">
 
-                            </td>
-                            <td>
-                                <p id="footertext">
-                                    <p id="txt">"Let's share something special together"</p><br>
-                                    &nbsp<img src="img/facebook.png" id="Pic">&nbsp
-                                    &nbsp<img src="img/twitter.png" id="Pic">&nbsp
-                                    &nbsp<img src="img/instagram.png" id="Pic">&nbsp
+                            <td width="50%">
+                                <p class="footertext">
+                                    <p class="txt">"Let's share something special together"</p><br>
+                                    &nbsp<img src="img/facebook.png" class="Pic">&nbsp
+                                    &nbsp<img src="img/twitter.png" class="Pic">&nbsp
+                                    &nbsp<img src="img/instagram.png" class="Pic">&nbsp
                                 </p>
                             </td>
                         </tr>
-
                     </table>
                 </div>
             </div>
