@@ -149,7 +149,7 @@
                 <div class="content-item">
                     <section class="resection push-bottom-lg" id="about">
                         <div class="jumbotron jumbotron-dark text-center">
-                            <h1>Do you want to managed something?</h1>
+                            <h1>SPECIAL OFFERS!</h1>
 
                             <p>
                                 Make you to developer.
@@ -163,7 +163,9 @@
                                         <img src="img/icons/table.png" alt="table">
 
                                         <p>
-                                            Ticket insertion.
+                                            <b>Buy 2 Days. Get  2 Days Free.</b>
+                                            <br> > Double the thrills with two extra days at Universal Japan.
+                                            <br> > Go all out in all three parks when you upgrade to include Volcano Bay for $40.
                                         </p>
 
                                         <button class="btn btn-lg btn-primary btn-embossed push-sm"
@@ -171,12 +173,16 @@
                                     </div>
                                 </div>
 
-                                <div class="promotion-item col-md-5">
+                                <div class="promotion-item col-md-4">
                                     <div class="promotion-item-box">
                                         <img src="img/icons/insert.png" alt="insert">
 
                                         <p>
-                                            Account insertion.
+                                            <b>Leap Year 2020</b>
+                                            <br> > 29th Feb | 29% OFF*
+                                            <br> > Offer is available both online and offline.
+                                            <br> > This Offer is valid only on 29th February.
+
                                         </p>
 
                                         <button class="btn btn-lg btn-primary btn-embossed push-sm"
@@ -184,12 +190,14 @@
                                     </div>
                                 </div>
 
-                                <div class="promotion-item col-md-3">
+                                <div class="promotion-item col-md-4">
                                     <div class="promotion-item-box">
                                         <img src="img/icons/coupon.png" alt="food">
 
                                         <p>
-                                            Discount coupon insertion.
+                                            <b>Save 10% on Tickets<\b>
+                                            <br> > Best Offer for Friends and Family.
+                                            <br> > Book 7 or more tickets and save 10%.
                                         </p>
 
                                         <button class="btn btn-lg btn-primary btn-embossed push-sm"
@@ -204,7 +212,7 @@
                                         <img src="img/icons/tickets.png" alt="ticket">
 
                                         <p>
-                                            Check a ticket.
+                                            Get an offer.
                                         </p>
 
                                         <button class="btn btn-lg btn-primary btn-embossed push-sm"
@@ -217,7 +225,7 @@
                                         <img src="img/icons/edit.png" alt="edit">
 
                                         <p>
-                                            Check someone account.
+                                            Get an offer.
                                         </p>
 
                                         <button class="btn btn-lg btn-primary btn-embossed push-sm"
@@ -230,7 +238,7 @@
                                         <img src="img/icons/discount.png" alt="discount">
 
                                         <p>
-                                            Check discount coupon.
+                                            Get an offer.
                                         </p>
 
                                         <button class="btn btn-lg btn-primary btn-embossed push-sm"
@@ -244,32 +252,7 @@
             </div>
         </main>
 
-        <!-- Footer -->
-        <footer class="footer">
-            <div class="footer-custom">
-                <div class="footer-item">
-                    <table border="0">
-                        <tr>
-                            <td width="50%">
-                                <p class="footertext">
-                                    <img src="img/locate.png" class="Pic">  2 Chome-1-33 Sakurajima, Konohana Ward, Osaka, 554-0031, Japan<br>
-                                    <img src="img/phone_contact.png" class="Pic">  +81 570-200-606<br>
-                                </p>
-                            </td>
 
-                            <td width="50%">
-                                <p class="footertext">
-                                <p class="txt">"Let's share something special together"</p><br>
-                                &nbsp<img src="img/facebook.png" class="Pic">&nbsp
-                                &nbsp<img src="img/twitter.png" class="Pic">&nbsp
-                                &nbsp<img src="img/instagram.png" class="Pic">&nbsp
-                                </p>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-        </footer>
 
         <!-- ========== [SCRIPT] ========== -->
         <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
