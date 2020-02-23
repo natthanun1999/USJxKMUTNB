@@ -15,6 +15,7 @@
 
         <link rel="icon" href="favicon.png">
 
+        <link href="https://fonts.googleapis.com/css?family=Staatliches|Lobster|Slabo+27px&display=swap" rel="stylesheet">
     </head>
 
     <body>
@@ -75,19 +76,6 @@
                                 echo $sending;
                             }
                         ?>
-
-                        <!--
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                User's
-                            </a>
-
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="Profile.html">Profile</a>
-                                <a class="dropdown-item" href="Logout.php">Logout</a>
-                            </div>
-                        </li>
-                        -->
                     </ul>
                 </div>
             </nav>
@@ -152,7 +140,33 @@
         <!-- Footer -->
         <footer class="footer">
             <div class="footer-custom">
-                <p class="footer-item"> Footer </p>
+                <div class="footer-item">
+                    <table border="0">
+                        <tr>
+                            <td width="150px">
+
+                            </td>
+                            <td>
+                                <p id="footertext">
+                                    <img src="img/locate.png" id="Pic">  2 Chome-1-33 Sakurajima, Konohana Ward, Osaka, 554-0031, Japan<br>
+                                    <img src="img/phone_contact.png" id="Pic">  +81 570-200-606<br>
+                                </p>
+                            </td>
+                            <td width="250px">
+
+                            </td>
+                            <td>
+                                <p id="footertext">
+                                    <p id="txt">"Let's share something special together"</p><br>
+                                    &nbsp<img src="img/facebook.png" id="Pic">&nbsp
+                                    &nbsp<img src="img/twitter.png" id="Pic">&nbsp
+                                    &nbsp<img src="img/instagram.png" id="Pic">&nbsp
+                                </p>
+                            </td>
+                        </tr>
+
+                    </table>
+                </div>
             </div>
         </footer>
 
