@@ -331,6 +331,9 @@
             var previousPath = "";
 
             function StartPath() {
+                if (!window.isLogin)
+                    modalShow('modal-wrapper');
+
                 if (!window.isEnd && window.isLogin && window.couponAmount > 0)
                 {
                     document.getElementById('R0-C1').style.color = "#ffffff";
@@ -446,7 +449,7 @@
             }
 
             function refresh() {
-                window.location.reload();
+                window.location.replace('Follow.php');
             }
         </script>
     </body>
