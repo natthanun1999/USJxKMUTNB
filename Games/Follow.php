@@ -13,26 +13,32 @@
 
     $fetchAmount = mysqli_fetch_assoc($resultAmount);
 
-    $picked = rand(1, $fetchAmount['AMOUNT']);
-
     $couponID = "";
     $couponDiscount = "";
+    $couponAmount = $fetchAmount['AMOUNT'];
 
-    $count = 1;
-
-    while ($fetchCoupon = mysqli_fetch_assoc($resultCoupon))
+    if ($couponAmount > 0)
     {
-        if ($count == $picked)
-        {
-            $couponID = $fetchCoupon['COUPON_ID'];
-            $couponDiscount = $fetchCoupon['COUPON_DISCOUNT'];
-            break;
-        }
+        $picked = rand(1, $fetchAmount['AMOUNT']);
 
-        $count++;
+        $count = 1;
+
+        while ($fetchCoupon = mysqli_fetch_assoc($resultCoupon))
+        {
+            if ($count == $picked)
+            {
+                $couponID = $fetchCoupon['COUPON_ID'];
+                $couponDiscount = $fetchCoupon['COUPON_DISCOUNT'];
+                break;
+            }
+
+            $count++;
+        }
     }
 
-    echo "<script> var couponID = '$couponID'; var couponDiscount = '$couponDiscount'; var userID = '".$_SESSION['USER_ID']."'; </script>";
+    if (isset($_SESSION['USER_ID']))
+        echo "<script> var couponID = '$couponID'; var couponDiscount = '$couponDiscount'; 
+                       var userID = '".$_SESSION['USER_ID']."'; var couponAmount = '$couponAmount'; </script>";
 ?>
 
 <html>
@@ -83,7 +89,13 @@
                         <?php
                             if (!isset($_SESSION['USER_LOGON']))
                             {
-                                echo "<script> window.location.replace('../index.php'); </script>";
+                                $sending = "<li class='nav-item'>"."\n";
+                                $sending = $sending."<a class='nav-link' href='#' onclick=\"modalShow('modal-wrapper');\">Login</a>"."\n";
+                                $sending = $sending."</li>";
+
+                                echo $sending;
+
+                                echo "<script> var isLogin = false </script>";
                             }
                             else
                             {
@@ -98,14 +110,16 @@
                                 if ($_SESSION['USER_STATUS'] == "99")
                                     $sending = $sending."<a class='dropdown-item' href='../Manage.php'> Manage </a>";
 
-                                $sending = $sending. "<a class='dropdown-item' href='../Cart.php'> Cart </a>";
-                                $sending = $sending. "<a class='dropdown-item' href='../Coupon.php'> Coupon </a>";
+                                $sending = $sending."<a class='dropdown-item' href='../Cart.php'> Cart </a>";
+                                $sending = $sending."<a class='dropdown-item' href='../Coupon.php'> Coupon </a>";
                                 $sending = $sending."<a class='dropdown-item' href='../Back-end/Logout.php'> Logout </a>";
                                 $sending = $sending."</div>";
 
                                 $sending = $sending."</li>";
 
                                 echo $sending;
+
+                                echo "<script> var isLogin = true </script>";
                             }
                         ?>
                     </ul>
@@ -144,7 +158,7 @@
                     <form class="modal-content animate" action="../Back-end/Register.php" method="post">
                         <div class="img-container">
                             <span onclick="modalClose('register-modal');" class="close" title="Close PopUp">&times;</span>
-                            <img src="1.png" alt="Avatar" class="avatar">
+                            <img src="../1.png" alt="Avatar" class="avatar">
                             <h1 style="text-align: center;">Register</h1>
                         </div>
 
@@ -317,10 +331,21 @@
             var previousPath = "";
 
             function StartPath() {
-                if (!window.isEnd)
+                if (!window.isEnd && window.isLogin && window.couponAmount > 0)
                 {
                     document.getElementById('R0-C1').style.color = "#ffffff";
                     window.isStart = true;
+                }
+
+                if (window.couponAmount <= 0)
+                {
+                    Swal.fire({
+                        title: 'Unfortunately!',
+                        text: 'Sorry, Coupon was out of stock.',
+                        icon: 'error',
+                        confirmButtonText: 'Close',
+                        onClose: refresh
+                    });
                 }
             }
 
@@ -372,7 +397,8 @@
                         title: 'Game over!',
                         text: 'Ah! You have lose this game T^T.',
                         icon: 'error',
-                        confirmButtonText: 'Close'
+                        confirmButtonText: 'Close',
+                        onClose: refresh
                     });
                 }
             }
@@ -417,6 +443,10 @@
                 document.getElementById('body').appendChild(form);
 
                 window.CouponUpdate.submit();
+            }
+
+            function refresh() {
+                window.location.reload();
             }
         </script>
     </body>

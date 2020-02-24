@@ -86,6 +86,7 @@
                                         $sending = $sending."<a class='dropdown-item' href='../Manage.php'> Manage </a>";
 
                                     $sending = $sending. "<a class='dropdown-item' href='../Cart.php'> Cart </a>";
+                                    $sending = $sending. "<a class='dropdown-item' href='../Coupon.php'> Coupon </a>";
                                     $sending = $sending."<a class='dropdown-item' href='../Back-end/Logout.php'> Logout </a>";
                                     $sending = $sending."</div>";
 

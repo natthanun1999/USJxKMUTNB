@@ -229,7 +229,7 @@
                 document.getElementById(id).style.display='block';
 
                 document.getElementById('couponID').innerText = "Coupon ID : " + couponID;
-                document.getElementById('couponDiscount').innerText = "Discount : " + couponDiscount;
+                document.getElementById('couponDiscount').innerText = "Discount : " + couponDiscount + "%";
                 document.getElementById('couponStatus').innerText = "Status : " + couponStatus;
             }
 

@@ -256,7 +256,7 @@
                                         </p>
 
                                         <button class="btn btn-lg btn-primary btn-embossed push-sm"
-                                                onclick="window.location='Manage/Ticket-List.php';">Enter</button>
+                                                onclick="window.location='Games/Flip-that-field!.php';">Enter</button>
                                     </div>
                                 </div>
 
@@ -269,7 +269,7 @@
                                         </p>
 
                                         <button class="btn btn-lg btn-primary btn-embossed push-sm"
-                                                onclick="window.location='Manage/Account-List.php';">Enter</button>
+                                                onclick="window.location='Games/Follow.php';">Enter</button>
                                     </div>
                                 </div>
 
