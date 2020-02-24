@@ -18,7 +18,7 @@
         <link href="https://fonts.googleapis.com/css?family=Staatliches|Lobster|Slabo+27px&display=swap" rel="stylesheet">
     </head>
 
-    <body>
+    <body class="promotion">
         <header>
             <nav id="topbar" class="navbar navbar-expand-lg navbar-light bg-light navbared shadow-sm">
                 <a class="navbar-brand" href="index.php">USJ</a>
@@ -145,11 +145,11 @@
                 </div>
             </div>
 
-            <div class="main-content" >
+            <div class="promotion-content" >
                 <div class="content-item">
                     <section class="resection push-bottom-lg" id="about">
                         <div class="jumbotron jumbotron-dark text-center">
-                            <h1>SPECIAL OFFERS!</h1>
+                            <h1 style = "border: 4px solid #fff; border-radius: 6px ">SPECIAL OFFERS!</h1>
 
                             <p>
                                 Universal Studios Japan Tickets and Offers.
@@ -160,10 +160,10 @@
                             <div class="row">
                                 <div class="promotion-item col-md-4">
                                     <div class="promotion-item-box">
-                                        <table width="100%" height="100%" border = "1">
+                                        <table width="100%" height="100%" >
                                             <tr height = "40%">
                                                 <td>
-                                                    <img src="img/offer1.png"  alt="insert">
+                                                    <img src="img/offer1.png" width = "100%" alt="insert">
                                                 </td>
                                             </tr>
 
@@ -189,8 +189,8 @@
 
                                 <div class="promotion-item col-md-4">
                                     <div class="promotion-item-box">
-                                        <table width="100%" height="100%">
-                                            <tr height = "40%">
+                                        <table width="100%" height="100%" >
+                                            <tr height = "40%" >
                                                 <td>
                                                     <img src="img/leapyear.jpg" width = "70%" alt="insert">
                                                 </td>
@@ -221,7 +221,7 @@
                                             <table width="100%" height="100%">
                                                 <tr height = "40%">
                                                     <td>
-                                                        <img src="img/offer3.png" alt="insert">
+                                                        <img src="img/offer3.png" width = "50%" alt="insert">
                                                     </td>
                                                 </tr>
 
@@ -246,13 +246,18 @@
                                 </div>
                             </div>
 
+                            <div class="jumbotron jumbotron-dark text-center">
+                                <h1 style = "border: 4px solid #fff; border-radius: 6px; background-color: #9CD6E1 " >PLAY MORE GET MORE</h1>
+
+                            </div>
+
                             <div class="row">
                                 <div class="promotion-item col-md-4">
                                     <div class="promotion-item-box">
                                         <img src="img/icons/tickets.png" alt="ticket">
 
                                         <p>
-                                            Flip-that-field!
+                                            <b>Flip-that-field!</b>
                                         </p>
 
                                         <button class="btn btn-lg btn-primary btn-embossed push-sm"
@@ -262,10 +267,10 @@
 
                                 <div class="promotion-item col-md-4">
                                     <div class="promotion-item-box">
-                                        <img src="img/icons/edit.png" alt="edit">
+                                        <img src="img/games2.png" alt="edit">
 
                                         <p>
-                                            Follow the ...
+                                            <b>Follow the ...</b>
                                         </p>
 
                                         <button class="btn btn-lg btn-primary btn-embossed push-sm"
@@ -275,14 +280,14 @@
 
                                 <div class="promotion-item col-md-4">
                                     <div class="promotion-item-box">
-                                        <img src="img/icons/discount.png" alt="discount">
+                                        <img src="img/games3.png" alt="discount">
 
                                         <p>
-                                            Slot Machine.
+                                            <b>Slot Machine.</b>
                                         </p>
 
                                         <button class="btn btn-lg btn-primary btn-embossed push-sm"
-                                                onclick="window.location='Manage/Coupon-List.php';">Enter</button>
+                                                onclick="window.location='Games/Slot.php';">Enter</button>
                                     </div>
                                 </div>
                             </div>

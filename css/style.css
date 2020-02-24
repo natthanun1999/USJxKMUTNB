@@ -145,6 +145,20 @@
     transform: translateX(-29%);
 }
 
+.promotion-content {
+    width: 70%;
+    height: 100%;
+    color: white;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.promotion-content .content-item {
+    position: relative;
+    left: 50%;
+    transform: translateX(-29%);
+}
+
 .home-content {
     width: 100%;
     padding-top: 50px;

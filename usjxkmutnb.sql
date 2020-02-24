@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 22, 2020 at 11:17 PM
+-- Generation Time: Feb 24, 2020 at 07:27 PM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 5.6.32
 
@@ -63,8 +63,9 @@ INSERT INTO `account` (`USER_ID`, `USERNAME`, `PASSWORD`, `STATUS_ID`, `MONEY`) 
 ('5W10', 'user03', '1234', 1, '35.00'),
 ('9999', '9999', '9999', 99, '0.00'),
 ('AF15', 'user01', '1234', 1, '0.00'),
-('FWD6', 'user02', '1234', 1, '590.00'),
-('WZ48', 'admin', '1234', 99, '49072.40');
+('FWD6', 'user02', '1234', 1, '467.60'),
+('MOJS', 'peachy', '1234', 99, '1000000.00'),
+('WZ48', 'admin', '1234', 99, '49038.40');
 
 -- --------------------------------------------------------
 
@@ -105,12 +106,25 @@ CREATE TABLE `coupon` (
 --
 
 INSERT INTO `coupon` (`COUPON_ID`, `COUPON_DISCOUNT`, `COUPON_STATUS`, `USER_ID`, `TICKET_ID`) VALUES
+('5RAUBWCG', 70, 'Idle', '9999', '999999'),
 ('98UR3QLP', 20, 'Idle', '9999', '999999'),
-('9YE2G0AV', 10, 'Idle', '9999', '999999'),
+('9YE2G0AV', 10, 'Idle', 'WZ48', '999999'),
 ('BOURWCR5', 20, 'Idle', '9999', '999999'),
-('DS32FW27', 50, 'Idle', '9999', '999999'),
+('DS32FW27', 50, 'Idle', 'WZ48', '999999'),
 ('EHWQ3213', 20, 'Used', 'WZ48', 'HQ1248'),
-('NNZKLBGF', 20, 'Idle', '9999', '999999');
+('ELCRDGZ3', 70, 'Idle', '9999', '999999'),
+('NNZKLBGF', 20, 'Used', 'FWD6', 'F70H17');
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `coupon_idle`
+-- (See below for the actual view)
+--
+CREATE TABLE `coupon_idle` (
+`COUPON_ID` varchar(8)
+,`COUPON_DISCOUNT` int(10)
+);
 
 -- --------------------------------------------------------
 
@@ -159,14 +173,14 @@ CREATE TABLE `ticket` (
 --
 
 INSERT INTO `ticket` (`TICKET_ID`, `TYPE_ID`, `TICKET_STATUS`, `USER_ID`) VALUES
-('2QGMTA', 1, 'Idle', '9999'),
-('6R9F4Z', 1, 'Idle', '9999'),
+('2QGMTA', 1, 'Sell', 'FWD6'),
+('6R9F4Z', 1, 'Sell', 'WZ48'),
 ('7TS1SZ', 3, 'Sell', 'FWD6'),
 ('999999', 0, 'Empty', '9999'),
 ('9B3CTS', 2, 'Sell', 'FWD6'),
 ('AL1855', 3, 'Sell', 'WZ48'),
 ('BD9131', 2, 'Idle', '9999'),
-('F70H17', 1, 'Idle', '9999'),
+('F70H17', 1, 'Sell', 'FWD6'),
 ('FDP0CV', 2, 'Idle', '9999'),
 ('HE2158', 2, 'Sell', 'WZ48'),
 ('HQ1248', 3, 'Idle', '9999'),
@@ -240,6 +254,15 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 DROP TABLE IF EXISTS `children_idle`;
 
 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `children_idle`  AS  select `ticket`.`TICKET_ID` AS `TICKET_ID` from `ticket` where ((`ticket`.`TYPE_ID` = '2') and (`ticket`.`TICKET_STATUS` = 'Idle')) ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `coupon_idle`
+--
+DROP TABLE IF EXISTS `coupon_idle`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `coupon_idle`  AS  select `coupon`.`COUPON_ID` AS `COUPON_ID`,`coupon`.`COUPON_DISCOUNT` AS `COUPON_DISCOUNT` from `coupon` where ((`coupon`.`COUPON_STATUS` = 'Idle') and (`coupon`.`USER_ID` = '9999')) ;
 
 -- --------------------------------------------------------
 
