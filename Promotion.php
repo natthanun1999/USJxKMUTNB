@@ -254,7 +254,7 @@
                             <div class="row">
                                 <div class="promotion-item col-md-4">
                                     <div class="promotion-item-box">
-                                        <img src="img/icons/tickets.png" alt="ticket">
+                                        <img src="img/games1.png" width = "220px" height = "200px" alt="ticket">
 
                                         <p>
                                             <b>Flip-that-field!</b>
@@ -267,7 +267,7 @@
 
                                 <div class="promotion-item col-md-4">
                                     <div class="promotion-item-box">
-                                        <img src="img/games2.png" alt="edit">
+                                        <img src="img/games2.png" width = "220px" height = "200px" alt="edit">
 
                                         <p>
                                             <b>Follow the ...</b>
@@ -280,7 +280,7 @@
 
                                 <div class="promotion-item col-md-4">
                                     <div class="promotion-item-box">
-                                        <img src="img/games3.png" alt="discount">
+                                        <img src="img/games3.png" width = "250px" height = "200px" alt="discount">
 
                                         <p>
                                             <b>Slot Machine.</b>
