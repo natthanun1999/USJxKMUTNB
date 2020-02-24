@@ -192,7 +192,7 @@
                                         <table width="100%" height="100%" >
                                             <tr height = "40%" >
                                                 <td>
-                                                    <img src="img/leapyear.jpg" width = "70%" alt="insert">
+                                                    <img src="img/leapyear.jpg" width = "200px" height="200px" alt="insert">
                                                 </td>
                                             </tr>
 
@@ -201,7 +201,8 @@
                                                     <p style = "margin-bottom : 0px">
                                                         <b>Leap Year 2020</b>
                                                     </p>
-                                                    <p style = "font-size : 1vw">
+
+                                                    <p style = "font-size : 1vw; line-height: 1.19;">
                                                         <br> > 29th Feb | 29% OFF*
                                                     </p>
                                                 </td>
