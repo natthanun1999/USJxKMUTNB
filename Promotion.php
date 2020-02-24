@@ -282,7 +282,7 @@
                                         </p>
 
                                         <button class="btn btn-lg btn-primary btn-embossed push-sm"
-                                                onclick="window.location='Manage/Coupon-List.php';">Enter</button>
+                                                onclick="window.location='Games/Slot.php';">Enter</button>
                                     </div>
                                 </div>
                             </div>
