@@ -9,6 +9,13 @@ body
     background: #343A40;
 }
 
+.promotion
+{
+    background-image: url("../img/bgpro.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 .navbared
 {
     border-radius: 0;
