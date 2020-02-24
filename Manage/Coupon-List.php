@@ -103,7 +103,7 @@
 
                                 <!-- Search Box -->
                                 <form action="Coupon-List.php" method="GET">
-                                    <input name="search" type="search" class="form-control input-sm half-width position-mid-v" placeholder="Search with ticket id"
+                                    <input name="search" type="search" class="form-control input-sm half-width position-mid-v" placeholder="Search with coupon id"
                                            value="<?php if (isset($_GET['search'])) echo $_GET['search']; ?>" autofocus>
                                 </form>
 
