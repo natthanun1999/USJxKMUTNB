@@ -129,7 +129,7 @@
 
                                             $couponID = $_GET['search'];
 
-                                            $sql = "SELECT * FROM coupon WHERE COUPON_ID like '%".$couponID."%'";
+                                            $sql = "SELECT * FROM coupon WHERE COUPON_ID like '%".$couponID."%' OR COUPON_DISCOUNT like '%".$couponID."%'";
                                             $resultAccount = mysqli_query($db, $sql);
 
                                             // Fetch each row in an associative array

@@ -93,7 +93,7 @@
                             <h1 style="text-align: center;">Ticket Information</h1>
                             <h3 style="text-align: center;" id="ticketType">Ticket Type : </h3>
                             <h3 style="text-align: center;" id="ticketID">Ticket ID : </h3>
-                            <h3 style="text-align: center;" id="ticketDate">Purchase Date : DD/MM/YYYY</h3>
+                            <!-- <h3 style="text-align: center;" id="ticketDate">Purchase Date : DD/MM/YYYY</h3> -->
                         </div>
 
                         <div class="container">

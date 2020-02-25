@@ -14,6 +14,8 @@
         $sql = "UPDATE account SET PASSWORD = '$password', STATUS_ID = '$status', MONEY = '$money' WHERE USER_ID = '$userID'";
         $resultAccount = mysqli_query($db, $sql);
 
+        $_SESSION['USER_BALANCE'] = getMoney($db, $userID);
+
         if ($resultAccount != "")
             SendSuccess();
         else
@@ -38,4 +40,14 @@
 
         echo $sending;
         echo "<script> window.SEND.submit(); </script>";
+    }
+
+    function getMoney($db, $userID)
+    {
+        $sql = "SELECT MONEY FROM account WHERE USER_ID = '$userID'";
+        $resultUser = mysqli_query($db, $sql);
+
+        $fetchUser = mysqli_fetch_assoc($resultUser);
+
+        return $fetchUser['MONEY'];
     }

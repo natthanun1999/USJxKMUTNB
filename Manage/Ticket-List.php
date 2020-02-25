@@ -129,7 +129,7 @@
                                                 $ticketID = $_GET['search'];
 
                                                 $sql = "SELECT TICKET_ID, ticket_type.TYPE_NAME, TICKET_STATUS, USER_ID FROM ticket JOIN ticket_type
-                                                        ON ticket.TYPE_ID = ticket_type.TYPE_ID WHERE TICKET_ID like '%".$ticketID."%'";
+                                                        ON ticket.TYPE_ID = ticket_type.TYPE_ID WHERE TICKET_ID like '%".$ticketID."%' OR ticket_type.TYPE_NAME like '%".$ticketID."%'";
                                                 $resultAccount = mysqli_query($db, $sql);
 
                                                 // Fetch each row in an associative array
